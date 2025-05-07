@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JSP/JSP.iml" filepath="$PROJECT_DIR$/JSP/JSP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestServlet/TestServlet.iml" filepath="$PROJECT_DIR$/TestServlet/TestServlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/homework/homework.iml" filepath="$PROJECT_DIR$/homework/homework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_2.iml" filepath="$PROJECT_DIR$/java_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oa/oa.iml" filepath="$PROJECT_DIR$/oa/oa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSP/oa2/oa2.iml" filepath="$PROJECT_DIR$/JSP/oa2/oa2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servlet01/servlet01/servlet01.iml" filepath="$PROJECT_DIR$/servlet01/servlet01/servlet01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servlet02/servlet02.iml" filepath="$PROJECT_DIR$/servlet02/servlet02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servlet03/servlet03.iml" filepath="$PROJECT_DIR$/servlet03/servlet03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servlet04/servlet04.iml" filepath="$PROJECT_DIR$/servlet04/servlet04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servlet1/servlet1/servlet1.iml" filepath="$PROJECT_DIR$/servlet1/servlet1/servlet1.iml" />
+    </modules>
+  </component>
+</project>
