@@ -42,7 +42,7 @@ public class DeptServlet extends HttpServlet {
             doAdd(req,resp);
         }
         }else {
-            resp.sendRedirect(req.getContextPath());//访问项目根节点 本就是欢迎页面
+            resp.sendRedirect(req.getContextPath() + "/index.jsp");//访问项目根节点 本就是欢迎页面
         }
     }
 

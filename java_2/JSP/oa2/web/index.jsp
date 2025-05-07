@@ -13,6 +13,7 @@
 <form action="<%=request.getContextPath()%>/user/login" method="post">
     username: <input type="text" name="username" ><br>
     password: <input type="password" name="password"><br>
+    <input type="checkbox" name="f" value="1">十天免登入<br>
     <input type="submit" value="login">
 </form>
 </body>
