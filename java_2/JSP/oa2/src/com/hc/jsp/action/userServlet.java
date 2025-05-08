@@ -73,7 +73,7 @@ public class userServlet extends HttpServlet {
             String f = req.getParameter("f");
             if ("1".equals(f)) {
                 //创建cookie对象
-                Cookie cookie1 = new Cookie("loginName", username);
+                Cookie cookie1 = new Cookie("username", username);
                 Cookie cookie2 = new Cookie("password", password);
 
                 //设置cookie的有效时间
