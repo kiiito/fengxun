@@ -1,5 +1,3 @@
-<%@ page import="java.util.List" %>
-<%@ page import="com.hc.jsp.bean.Dept" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -7,6 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <title>list</title>
+<%--    设置整个网页的基础路径--%>
+<%--    <base href="http://localhost:8080/oa/">--%>
+    <base href="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/">
     <script type="text/javascript">
         function del(dno) {
             if (window.confirm("亲，删了不可恢复哦！")) {
@@ -35,7 +36,7 @@
 <%--    %>--%>
     <c:forEach items="${deptList}" varStatus="d" var="dept">
     <tr>
-        <td>${deptList.count}</td>
+        <td>${d.count}</td>
         <td>${dept.deptno}</td>
         <td>${dept.dname}</td>
         <td>

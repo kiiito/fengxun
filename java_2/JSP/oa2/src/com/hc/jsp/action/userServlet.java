@@ -31,6 +31,22 @@ public class userServlet extends HttpServlet {
         if (session != null) {
             //手动销毁session对象
             session.invalidate();
+            //销毁cookie
+            Cookie[] cookies = req.getCookies();
+            if (cookies != null) {
+                for (Cookie cookie : cookies){
+                    String name = cookie.getName();
+                    if ("username".equals(name) || "password".equals(name)) {
+                        //这个cookie要销毁
+                        cookie.setMaxAge(0);
+                        //设置要同一个路径的cookie位置 不然删除无效
+                        cookie.setPath(req.getContextPath());
+                        //响应cookie给浏览器 将之前的cookie覆盖
+                        resp.addCookie(cookie);
+                    }
+                }
+            }
+
             //跳转到登陆页面
             resp.sendRedirect(req.getContextPath());
         }

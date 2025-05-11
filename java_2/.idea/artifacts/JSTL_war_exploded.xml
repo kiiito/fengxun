@@ -5,7 +5,7 @@
       <element id="javaee-facet-resources" facet="JSTL/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="JSTL" />
+          <element id="module-output" name="Filter" />
         </element>
       </element>
     </root>

@@ -23,10 +23,28 @@ public class DeptServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //获取session（不需要新建的） 获取不到就返回null
-        HttpSession session = req.getSession(false);
-        if (session != null && session.getAttribute("username") != null){
-        resp.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = resp.getWriter();
+//        HttpSession session = req.getSession(false);
+//        if (session != null && session.getAttribute("username") != null){
+//        resp.setContentType("text/html;charset=UTF-8");
+//        PrintWriter out = resp.getWriter();
+//        String servletPath = req.getServletPath();
+//        if ("/dept/list".equals(servletPath)) {
+//            doList(req, resp);
+//        } else if ("/dept/detail".equals(servletPath)) {
+//            doDetail(req,resp);
+//        }else if ("/dept/del".equals(servletPath)){
+//            doDel(req,resp);
+//        } else if ("/dept/edit".equals(servletPath)) {
+//           doEdit(req,resp);
+//        } else if ("/dept/modify".equals(servletPath)) {
+//            doModify(req,resp);
+//        } else if ("/dept/add".equals(servletPath)) {
+//            doAdd(req,resp);
+//        }
+//        }else {
+//            resp.sendRedirect(req.getContextPath() + "/index.jsp");//访问项目根节点 本就是欢迎页面
+//        }
+
         String servletPath = req.getServletPath();
         if ("/dept/list".equals(servletPath)) {
             doList(req, resp);
@@ -35,14 +53,11 @@ public class DeptServlet extends HttpServlet {
         }else if ("/dept/del".equals(servletPath)){
             doDel(req,resp);
         } else if ("/dept/edit".equals(servletPath)) {
-           doEdit(req,resp);
+            doEdit(req,resp);
         } else if ("/dept/modify".equals(servletPath)) {
             doModify(req,resp);
         } else if ("/dept/add".equals(servletPath)) {
             doAdd(req,resp);
-        }
-        }else {
-            resp.sendRedirect(req.getContextPath() + "/index.jsp");//访问项目根节点 本就是欢迎页面
         }
     }
 

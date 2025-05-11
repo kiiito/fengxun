@@ -43,5 +43,6 @@
     <orderEntry type="library" name="druid-1.2.23 (3)" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.1.49 (3)" level="project" />
     <orderEntry type="module" module-name="oa" />
+    <orderEntry type="library" name="jakarta.servlet.jsp.jstl-api-2.0.0 (2)" level="project" />
   </component>
 </module>
