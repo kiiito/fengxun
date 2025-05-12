@@ -1,5 +1,6 @@
 package com.hc.jsp.action;
 
+import com.hc.jsp.bean.User;
 import com.hc.jsp.utils.JDBCUtilsByDruid;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -29,6 +30,8 @@ public class userServlet extends HttpServlet {
     private void doExit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
         if (session != null) {
+            //从session域移除对象user
+            session.removeAttribute("user");
             //手动销毁session对象
             session.invalidate();
             //销毁cookie
@@ -83,7 +86,10 @@ public class userServlet extends HttpServlet {
         if (key) {
             //获取session对象
             HttpSession session = req.getSession();
-            session.setAttribute("username", username);
+//            session.setAttribute("username", username);
+
+            User user = new User(username, password);
+            session.setAttribute("user",user);
 
             //确定是否选择十天免登入
             String f = req.getParameter("f");

@@ -28,7 +28,7 @@ public class LoginFilter implements Filter {
 
         if ("/index.jsp".equals(servletPath) || "/welcome".equals(servletPath) ||
                 "/user/login".equals(servletPath) || "/user/exit".equals(servletPath) ||
-        session != null && session.getAttribute("username") != null){
+        session != null && session.getAttribute("user") != null){
             //¼ÌÐøÍùÏÂ×ß
             filterChain.doFilter(request,response);
         }else {

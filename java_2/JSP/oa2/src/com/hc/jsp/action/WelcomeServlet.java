@@ -1,5 +1,6 @@
 package com.hc.jsp.action;
 
+import com.hc.jsp.bean.User;
 import com.hc.jsp.utils.JDBCUtilsByDruid;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -58,7 +59,12 @@ public class WelcomeServlet extends HttpServlet {
             if (key){
                 //获取session对象
                 HttpSession session = req.getSession();
-                session.setAttribute("username", username);
+
+//                session.setAttribute("username", username);
+
+                User user = new User(username, password);
+                session.setAttribute("user",user);
+
                 resp.sendRedirect(req.getContextPath() + "/dept/list");
             }else {
                 resp.sendRedirect(req.getContextPath() + "/index.jsp");

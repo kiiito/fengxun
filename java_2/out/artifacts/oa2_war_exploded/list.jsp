@@ -17,7 +17,7 @@
     </script>
 </head>
 <body>
-<h3>欢迎${username}</h3>
+<h3>欢迎${username} 在线人数${onlineCount}</h3>
 <a href="${pageContext.request.contextPath}/user/exit">退出系统</a>
 <h1 align="center">部门列表</h1>
 <hr>
