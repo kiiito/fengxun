@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="druid-1.2.23 (4)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bank_mvc/web/WEB-INF/lib/druid-1.2.23.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
