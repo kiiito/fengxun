@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.JavaWeb</groupId>
+  <artifactId>javaWeb</artifactId>
+  <version>1.0.0</version>
+  <packaging>war</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.1</version>
+      <scope>test</scope>
+    </dependency>
+    <!--导入servlet依赖-->
+    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>6.0.0</version> <!-- 最新稳定版 -->
+      <scope>provided</scope> <!-- Tomcat 自带该库，无需打包进 WAR -->
+    </dependency>
+  </dependencies>
+
+<!--  指定资源文件的位置-->
+  <build>
+    <resources>
+      <resource>
+        <!--指定java目录下的所有路径下的所有文件-->
+        <directory>src/main/java</directory>
+
+        <includes>
+          <include>**/*.xml</include>
+
+          <include>**/*.properties</include>
+
+        </includes>
+
+      </resource>
+
+      <resource>
+        <!--指定resources目录下的所有路径下的所有文件-->
+        <directory>src/main/resources</directory>
+
+        <includes>
+          <include>**/*.xml</include>
+
+          <include>**/*.properties</include>
+
+        </includes>
+
+      </resource>
+
+    </resources>
+
+  </build>
+
+<!--  上传到私服-->
+  <distributionManagement>
+<!--    上传到发布仓库-->
+    <repository>
+      <id>hc-nexus</id>
+      <url>http://localhost:8081/repository/hc-release/</url>
+    </repository>
+<!--    上传的内侧仓库-->
+    <snapshotRepository>
+      <id>hc-nexus</id>
+      <url>http://localhost:8081/repository/hc-snapshot/</url>
+    </snapshotRepository>
+  </distributionManagement>
+</project>
