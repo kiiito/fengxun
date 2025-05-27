@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hc.dao.AccountDao">
+
+    <select id="selectByAction" resultType="com.hc.bean.Account">
+        select * from users where actno = #{actno}
+    </select>
+
+    <update id="update" >
+        update users set balance = #{balance} where actno = #{actno}
+    </update>
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userBean" class="com.hc.spring6.bean.User">
+    </bean>
+
+    <bean id="userDaoBean" class="com.hc.spring6.dao.UserDao"/>
+
+<!--    配置service的bean-->
+    <bean id="userServiceBean" class="com.hc.spring6.service.UserService">
+<!--        需要配置property属性 name是set方法去掉set将首字母小写 ref是userDao的bean-->
+        <property name="userDao" ref="userDaoBean"/>
+    </bean>
+
+<!--    简单类型注入-->
+    <bean id="userBean2" class="com.hc.spring6.bean.User">
+        <property name="username" value="张三"/>
+        <property name="password" value="123"/>
+        <property name="age" value="18"/>
+    </bean>
+</beans>

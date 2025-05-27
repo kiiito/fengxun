@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    scope 默认是singleton 即单列 只创建一个对象 构造方法只执行一次 在创建ApplicationContext对象时就执行-->
+<!--    prototype 每执行一次getBean()方法则创建一个对象 执行一次构造方法-->
+<!--    request session 只有在web项目应用下才有 必须引入spring-webmvc框架-->
+<!--    request 一次请求当中一个bean-->
+<!--    session一次会话中只有一个bean-->
+<!--一共有八种-->
+    <bean id="userBean" class="com.hc.spring6.bean.User" scope="prototype"/>
+</beans>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--开启mybatis对标准日志的实现-->
+    <settings>
+        <!--   STDOUT_LOGGING 是mybatis已经实现的 不需要在配置     -->
+        <!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+        <setting name="logImpl" value="SLF4J"/>
+    </settings>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mvc?
+                 useUnicode=yes&amp;
+                 characterEncoding=UTF-8&amp;
+                 connectionCollation=utf8mb4_unicode_ci&amp;
+                 useSSL=false&amp;
+                 serverTimezone=Asia/Shanghai&amp;
+                 rewriteBatchedStatements=true&amp;
+                 characterSetResults=utf8mb4"/>
+                <property name="username" value="root"/>
+                <property name="password" value="hc"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!-- 指定 Mapper 接口 -->
+        <!--        <mapper class="org.mybatis.example.BlogMapper"/>-->
+        <!--        执行CarMapper.xml文件的路径-->
+        <mapper resource="MusicMapper.xml"/>
+
+        <!--        url属性 可以放在别的路径 绝对路径-->
+        <!--        <mapper url="file:///d:/MusicMapper.xml"/>-->
+    </mappers>
+</configuration>

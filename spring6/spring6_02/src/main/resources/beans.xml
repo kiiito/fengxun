@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="userDaoBean" class="com.hc.spring6.dao.UserDao"/>
+<!--    构造注入有三种方式 通过下标 通过name 还可以不写-->
+    <bean id="csBean" class="com.hc.spring6.service.CustomerService">
+<!--        根据下标 是通过构造器的参数的个数决定-->
+        <constructor-arg index="0" ref="userDaoBean"/>
+    </bean>
+    <bean id="csBean2" class="com.hc.spring6.service.CustomerService">
+<!--        根据构造器参数的名称-->
+        <constructor-arg name="userDao" ref="userDaoBean"/>
+    </bean>
+    <bean id="csBean3" class="com.hc.spring6.service.CustomerService">
+        <!-- spring会自动根据构造器参数的参数类型-->
+        <constructor-arg ref="userDaoBean"/>
+    </bean>
+</beans>

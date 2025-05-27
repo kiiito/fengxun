@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xlz.dao.MusicDao">
+    <select id="selectUser" resultType="com.xlz.bean.user">
+        select *
+        from m_user
+        where username = #{username}
+    </select>
+    <insert id="insertUser">
+        insert into m_user(username, password, phone, sex)
+        values (#{username}, #{password}, #{phone}, #{sex})
+    </insert>
+    <select id="GetSongLIST" resultType="com.xlz.bean.Song">
+        select id, singer_name as SingerName, song_name as SongName, vip, singer_id as SingerId
+        from m_song
+    </select>
+    <select id="selectAllUser" resultType="com.xlz.bean.user">
+        select id, username, password, vip, sex, phone
+        from m_user
+    </select>
+    <select id="selectAllSinger" resultType="com.xlz.bean.Singer">
+        select id, name, age, sex
+        from m_singer
+    </select>
+    <select id="GetVipSong" resultType="com.xlz.bean.Song">
+        select id, singer_name as SingerName, song_name as SongName, vip, singer_id as SingerId
+        from m_song where vip = 1
+    </select>
+    <insert id="addUser">
+        insert into m_user(username, password, phone, sex,vip)
+        values (#{username}, #{password}, #{phone}, #{sex},#{vip})
+    </insert>
+</mapper>
