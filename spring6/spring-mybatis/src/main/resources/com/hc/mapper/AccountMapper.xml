@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hc.mapper.AccountMapper">
+
+    <insert id="insert">
+        insert into users values (#{name},#{balance})
+    </insert>
+    <update id="update">
+        update users set balance = #{balance} where name = #{name}
+    </update>
+    <delete id="delete">
+        delete from users where name = #{name}
+    </delete>
+    <select id="select" resultType="com.hc.pojo.Account">
+        select * from users where name = #{name}
+    </select>
+    <select id="selectAll" resultType="com.hc.pojo.Account">
+        select * from users
+    </select>
+</mapper>

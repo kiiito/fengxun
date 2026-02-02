@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<h1>hello <span th:text="${name}"></span></h1>
+<h1>可以替换 th后面跟的任何属性能够替换掉原有属性 动态展示</h1>
+<a th:href="${url}" href="wwww.baidu.com" th:text="${love}">百度</a>
+<br>
+<h1>属性合并</h1>
+<a th:attr="href=${url},style=${style}" href="wwww.baidu.com" style="color:cyan">百度</a>
+</body>
+</html>

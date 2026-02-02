@@ -1,0 +1,28 @@
+
+spring:
+  datasource:
+    type:  com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/hc?rewriteBatchedStatements=true
+    password: 1234
+    username: root
+  session:
+    timeout: 86400
+    store-type: redis
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      database: 4
+mybatis-plus:
+  type-aliases-package: com.hucong.springbootcloud.domain
+  mapper-locations: "classpath:mapper/*.xml"
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+  global-config: #配置逻辑删除
+    db-config:
+      logic-delete-field: isDelete # 逻辑删除字段
+      logic-delete-value: 1  # 逻辑已删除值 默认为 1
+      logic-not-delete-value: 0 # 逻辑未删除值 默认为 0

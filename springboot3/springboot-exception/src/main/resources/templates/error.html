@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>error</title>
+</head>
+<body>
+<h1>error通用错误页面</h1>
+异常发生时间：<span th:text="${timestamp}"></span><br>
+HTTP状态码：<span th:text="${status}"></span><br>
+错误类型：<span th:text="${error}"></span><br>
+异常类名：<span th:text="${exception}"></span><br>
+错误信息：<span th:text="${message}"></span><br>
+堆栈跟踪：<span th:text="${trace}"></span><br>
+</body>
+</html>

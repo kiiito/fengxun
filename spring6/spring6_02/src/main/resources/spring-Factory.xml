@@ -2,11 +2,26 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--通过无参构造器实例化bean-->
 
 <!--    简单工厂模式-->
+<!--    只需要告诉获取对象的方法即可-->
     <bean id="star" class="com.hc.beanFactory.starFactory" factory-method="get"/>
 
 <!--    工厂方法模式-->
+<!--    factory-bean 告诉spring调用哪一个对象 factory-method告诉spring调用该对象的哪一个方法-->
     <bean id="gunFactory" class="com.hc.beanFactory.GunFactory"/>
     <bean id="gun" factory-bean="gunFactory" factory-method="get"/>
+
+<!--    通过实现FactoryBean接口 是对工厂方法模式的简化-->
+    <bean id="person" class="com.hc.beanFactory.PersonFactory"/>
+
+<!--    通过工厂bean返回普通bean Date-->
+    <bean id="dateBean" class="com.hc.beanFactory.DateFactoryBean">
+        <constructor-arg index="0" value="1980-10-18"/>
+    </bean>
+
+    <bean id="date" class="com.hc.beanFactory.Student">
+        <property name="date" ref="dateBean"/>
+    </bean>
 </beans>

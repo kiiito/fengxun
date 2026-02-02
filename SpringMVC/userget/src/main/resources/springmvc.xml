@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+<!--组件扫描-->
+    <context:component-scan base-package="com.hc"/>
+    <!--视图解析器-->
+    <bean id="thymeleafViewResolver" class="org.thymeleaf.spring6.view.ThymeleafViewResolver">
+        <!--作用于视图渲染的过程中，可以设置视图渲染后输出时采用的编码字符集-->
+        <property name="characterEncoding" value="UTF-8"/>
+        <!--如果配置多个视图解析器，它来决定优先使用哪个视图解析器，它的值越小优先级越高-->
+        <property name="order" value="1"/>
+        <!--当 ThymeleafViewResolver 渲染模板时，会使用该模板引擎来解析、编译和渲染模板-->
+        <property name="templateEngine">
+            <bean class="org.thymeleaf.spring6.SpringTemplateEngine">
+                <!--用于指定 Thymeleaf 模板引擎使用的模板解析器。模板解析器负责根据模板位置、模板资源名称、文件编码等信息，加载模板并对其进行解析-->
+                <property name="templateResolver">
+                    <bean class="org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver">
+                        <!--设置模板文件的位置（前缀）-->
+                        <property name="prefix" value="/WEB-INF/templates/"/>
+                        <!--设置模板文件后缀（后缀），Thymeleaf文件扩展名不一定是html，也可以是其他，例如txt，大部分都是html-->
+                        <property name="suffix" value=".html"/>
+                        <!--设置模板类型，例如：HTML,TEXT,JAVASCRIPT,CSS等-->
+                        <property name="templateMode" value="HTML"/>
+                        <!--用于模板文件在读取和解析过程中采用的编码字符集-->
+                        <property name="characterEncoding" value="UTF-8"/>
+                    </bean>
+
+                </property>
+
+            </bean>
+
+        </property>
+
+    </bean>
+<!--    配置视图配置器-->
+    <mvc:view-controller path="/" view-name="user_index"/>
+<!--    配置注解驱动-->
+    <mvc:annotation-driven/>
+<!--    处理静态资源 开启默认的servlet处理-->
+    <mvc:default-servlet-handler/>
+    <!--    强制使用cglib-->
+    <aop:config proxy-target-class="true"/>
+    <!--外部属性配置文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--    配置数据源-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driverClass}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+    <!--配置SqlSessionFactoryBean-->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--        配置数据源-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--        指定mybatis核心配置文件-->
+        <property name="configLocation" value="myBatis-config.xml"/>
+        <!--        指定别名-->
+        <property name="typeAliasesPackage" value="com.hc.pojo"/>
+    </bean>
+
+    <!--    mapper扫描配置器 主要扫描mapper接口 生成代理类-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.hc.mybatis.mapper"/>
+    </bean>
+    <!--    事务管理器开启-->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--    启用事务注解-->
+    <tx:annotation-driven transaction-manager="txManager"/>
+</beans>

@@ -1,0 +1,5 @@
+myapp:
+  username: eula
+  email: 123@qq.com
+  age: 18
+  gender: true

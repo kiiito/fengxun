@@ -1,0 +1,19 @@
+package com.hc.user.mapper;
+
+import com.hc.user.model.User;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+* @author 风寻
+* @description 针对表【user(用户)】的数据库操作Mapper
+* @createDate 2025-07-05 13:57:00
+* @Entity com.hc.user.model.User
+*/
+public interface UserMapper extends BaseMapper<User> {
+
+}
+
+
+
+

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<form th:action="@{/transfer}" method="post">
+    转出账号：<input type="text" name="outAccount"><br>
+    转入账号：<input type="text" name="inAccount"><br>
+    转账金额：<input type="text" name="money"><br>
+    <input type="submit" value="转账">
+</form>
+</body>
+</html>

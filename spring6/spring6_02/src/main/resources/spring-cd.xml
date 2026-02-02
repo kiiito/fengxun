@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    循环依赖 只有采用set和单例的情况下才能解决-->
+<!--    这种模式下可以做到将 实例化bean 和 给bean属性赋值 这两个动作分开完成-->
+<!--    在spring容器加载时 实例化bean 只要其中任意一个bean实例化后 就立即“曝光”(不等属性赋值就曝光)-->
+<!--    bean “曝光” 之后 在对属性赋值（调用set方法）-->
+<!--    采用无参构造器的话就不行-->
+<!--如果一个是单例的 一个是prototype 也可以通过-->
+    <bean id="h" class="com.hc.CircularDependency.Husband" scope="singleton">
+        <property name="name" value="张三"/>
+        <property name="wife" ref="w"/>
+    </bean>
+    <bean id="w" class="com.hc.CircularDependency.Wife" scope="singleton">
+        <property name="name" value="丽莎"/>
+        <property name="husband" ref="h"/>
+    </bean>
+</beans>

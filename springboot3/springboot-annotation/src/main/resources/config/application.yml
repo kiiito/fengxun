@@ -1,0 +1,7 @@
+#propreties的合并配置文件写法
+#  spring.config.import=classpath:/config/application-mysql.properties,classpath:/config/application-redis.properties
+spring:
+  config:
+    - classpath:/config/application-mysql.yml
+    - classpath:/config/application-redis.yml
+#    import: [classpath:/config/application-mysql.yml,classpath:/config/application-redis.yml]

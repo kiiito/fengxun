@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/test}">第一个</a>
+<a th:href="@{/two}">第二个</a>
+<form th:action="@{/user/login}" method="post">
+    用户名：<input type="text" name="username"/><br>
+    密码：<input type="password" name="password"/><br>
+    <input type="submit" value="登录">
+</form>
+
+<!--测试RequestMapping的params属性-->
+<a th:href="@{/testParams(username='admin',password='123')}">测试params属性</a>
+<!--测试RequestMapping的headers属性-->
+<a th:href="@{/testHeaders}">测试headers属性</a><br>
+</body>
+</html>

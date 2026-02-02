@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/spring6
+    username: root
+    password: 1234
+    type: com.zaxxer.hikari.HikariDataSource
+  web:
+    resources:
+      cache:
+        cachecontrol:
+          max-age: 3600
+
+#1 起别名
+#2 告诉springboot mapper配置文件的位置
+#3 启用自动映射 开启驼峰命名法匹配数据库的属性名
+mybatis:
+  type-aliases-package: com.hc.springboot.ssm.bean
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    org.mybatis: DEBUG
+
+

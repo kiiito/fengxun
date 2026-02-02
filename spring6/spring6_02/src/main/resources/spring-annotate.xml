@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+<context:component-scan base-package="com.hc.annotate"></context:component-scan>
+
+<!--    给spring框架指定要扫描那些包中的类-->
+<!--    如果有多个包 用逗号隔开-->
+<!--    use-default-filters = false 表示该包下的所有带声明的Bean的注解全部失效-->
+<!--    <context:component-scan base-package="com.hc.annotate" use-default-filters="false">-->
+<!--&lt;!&ndash;        表示只有Repository注解的类生效&ndash;&gt;-->
+<!--        <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>-->
+<!--    </context:component-scan>-->
+<!--    use-default-filters="true" 默认就是ture-->
+<!--    <context:component-scan base-package="com.hc.annotate" use-default-filters="true">-->
+<!--        &lt;!&ndash;        表示排除Repository注解的类 其他的类都生效&ndash;&gt;-->
+<!--       <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>-->
+<!--    </context:component-scan>-->
+</beans>

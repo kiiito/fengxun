@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hc.springboot.ssm.repository.StudentsMapper">
+    <select id="selectstu" resultType="com.hc.springboot.ssm.bean.Students">
+        select * from emp.stu where name=#{name} and smajor=#{smajor}
+    </select>
+    <select id="selectByname" resultType="com.hc.springboot.ssm.bean.Students">
+        select * from emp.stu
+        <where>
+            <if test="name!=null and name!=''">
+                and name=#{name}
+            </if>
+        </where>
+    </select>
+    <select id="selectBysmajor" resultType="com.hc.springboot.ssm.bean.Students">
+        select * from emp.stu
+        <where>
+            <if test="name ==null and smajor!=null">
+                and smajor= #{smajor}
+            </if>
+        </where>
+    </select>
+    <select id="selectnotnull" resultType="com.hc.springboot.ssm.bean.Students">
+        SELECT * FROM emp.stu
+        <where>
+            <!-- 姓名、专业都为空：查学号不为空 -->
+            <if test="name == null and name == '' and smajor == null and smajor == ''">
+                `number` IS NOT NULL
+            </if>
+            <!-- 否则按输入动态拼接 -->
+            <if test="name != null and name != ''">AND name = #{name}</if>
+            <if test="smajor != null and smajor != ''">AND major = #{smajor}</if>
+        </where>
+    </select>
+    <select id="selectall" resultType="com.hc.springboot.ssm.bean.Students">
+        SELECT * FROM emp.stu
+        <where>
+            <if test="id != null">
+                AND id &lt; #{id}
+            </if>
+        </where>
+    </select>
+
+    <select id="findBytupename" resultType="com.hc.springboot.ssm.bean.product">
+        select product.* from product join category on product.typeid=category.id where category.typename=#{color}
+    </select>
+
+
+</mapper>

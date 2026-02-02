@@ -1,0 +1,38 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xmlns:context="http://www.springframework.org/schema/context"-->
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">-->
+
+<!--&lt;!&ndash;    开启组件扫描&ndash;&gt;-->
+<!--    <context:component-scan base-package="com.hc.controller"/>-->
+<!--    &lt;!&ndash;视图解析器&ndash;&gt;-->
+<!--    <bean id="thymeleafViewResolver" class="org.thymeleaf.spring6.view.ThymeleafViewResolver">-->
+<!--        &lt;!&ndash;作用于视图渲染的过程中，可以设置视图渲染后输出时采用的编码字符集&ndash;&gt;-->
+<!--        <property name="characterEncoding" value="UTF-8"/>-->
+<!--        &lt;!&ndash;如果配置多个视图解析器，它来决定优先使用哪个视图解析器，它的值越小优先级越高&ndash;&gt;-->
+<!--        <property name="order" value="1"/>-->
+<!--        &lt;!&ndash;当 ThymeleafViewResolver 渲染模板时，会使用该模板引擎来解析、编译和渲染模板&ndash;&gt;-->
+<!--        <property name="templateEngine">-->
+<!--            <bean class="org.thymeleaf.spring6.SpringTemplateEngine">-->
+<!--                &lt;!&ndash;用于指定 Thymeleaf 模板引擎使用的模板解析器。模板解析器负责根据模板位置、模板资源名称、文件编码等信息，加载模板并对其进行解析&ndash;&gt;-->
+<!--                <property name="templateResolver">-->
+<!--                    <bean class="org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver">-->
+<!--                        &lt;!&ndash;设置模板文件的位置（前缀）&ndash;&gt;-->
+<!--                        <property name="prefix" value="/WEB-INF/templates/"/>-->
+<!--                        &lt;!&ndash;设置模板文件后缀（后缀），Thymeleaf文件扩展名不一定是html，也可以是其他，例如txt，大部分都是html&ndash;&gt;-->
+<!--                        <property name="suffix" value=".html"/>-->
+<!--                        &lt;!&ndash;设置模板类型，例如：HTML,TEXT,JAVASCRIPT,CSS等&ndash;&gt;-->
+<!--                        <property name="templateMode" value="HTML"/>-->
+<!--                        &lt;!&ndash;用于模板文件在读取和解析过程中采用的编码字符集&ndash;&gt;-->
+<!--                        <property name="characterEncoding" value="UTF-8"/>-->
+<!--                    </bean>-->
+
+<!--                </property>-->
+
+<!--            </bean>-->
+
+<!--        </property>-->
+
+<!--    </bean>-->
+<!--</beans>-->

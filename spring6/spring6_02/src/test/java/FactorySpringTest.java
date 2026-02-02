@@ -1,10 +1,24 @@
 import com.hc.beanFactory.Gun;
+import com.hc.beanFactory.Person;
 import com.hc.beanFactory.Star;
+import com.hc.beanFactory.Student;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class FactorySpringTest {
+    @Test
+    public void testFactoryBean(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-Factory.xml");
+        Student date = applicationContext.getBean("date", Student.class);
+        System.out.println(date);
+    }
+    @Test
+    public void testFactory4(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-Factory.xml");
+        Person person = applicationContext.getBean("person", Person.class);
+        System.out.println(person);
+    }
     @Test
     public void testFactory3(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-Factory.xml");

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>index</title>
+
+</head>
+
+<body>
+<h1>Index Page</h1>
+<a th:href="@{/testModel}">在SpringMVC中model接口实现request域数据共享</a><br>
+<a th:href="@{/testMap}">在SpringMVC中model接口实现request域数据共享</a><br>
+<a th:href="@{/testModelMap}">在SpringMVC中ModelMap类实现request域数据共享</a><br>
+<a th:href="@{/testModelAndView}">在SpringMVC中ModelAndView类实现request域数据共享</a><br>
+<a th:href="@{/testSessionAttribute}">在SpringMVC中model类实现session域数据共享</a><br>
+
+<a th:href="@{/a}">A</a>
+<a th:href="@{/b}">B</a>
+
+  <br/>
+  <h1>RESTful风格</h1>
+<a th:href="@{/user}">查看用户列表</a>
+</body>
+
+</html>

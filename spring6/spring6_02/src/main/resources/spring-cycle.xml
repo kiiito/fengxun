@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    配置bean处理器 这个处理器将作用于这个配置文件中所有bean-->
+    <bean class="com.hc.beanCycle.LogBeanPostProcessor"/>
+
+<!--    需要配置初始化方法和销毁方法-->
+    <bean id="user" class="com.hc.beanCycle.User" init-method="initBean" destroy-method="destroyBean">
+        <property name="name" value="张三"/>
+    </bean>
+    <bean id="vip" class="com.hc.beanCycle.vip" init-method="initBean" destroy-method="destroyBean">
+        <property name="name" value="李四"/>
+    </bean>
+</beans>

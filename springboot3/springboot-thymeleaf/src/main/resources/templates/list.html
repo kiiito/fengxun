@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+</head>
+<body>
+<table border="1px">
+    <tr>
+        <td>序号</td>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>性别</td>
+        <td>简介</td>
+        <td>居住地</td>
+    </tr>
+    <tr th:each="user,state :${users}">
+        <td >1</td>
+        <td th:text="${user.name}">张三</td>
+        <td th:text="${user.age}">38</td>
+        <td th:text="${user.gender ? '男' : '女'}">男</td>
+        <td th:text="${user.desc}">我是张三</td>
+        <td th:text="${user.location}">江西</td>
+        <td>
+            状态信息 采用内联表达式<br/>
+            下标：[[${state.index}]]<br/>
+            序号：[[${state.count}]]<br/>
+            当前对象：[[${state.current}]]<br/>
+            元素总数：[[${state.size}]]<br/>
+            是否为偶数行：[[${state.even}]]<br/>
+            是否为奇数行：[[${state.odd}]]<br/>
+            是否为第一行：[[${state.first}]]<br/>
+            是否为最后一行：[[${state.last}]]<br/>
+        </td>
+    </tr>
+</table>
+
+<h1>更改页面</h1>
+</body>
+</html>

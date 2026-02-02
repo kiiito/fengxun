@@ -1,0 +1,17 @@
+logging:
+  level:
+    io.lettuce.core: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+
+spring:
+  data:
+    redis:
+      sentinel:
+        master: mymaster
+        nodes:
+          - 192.168.253.136:27001
+          - 192.168.253.136:27002
+          - 192.168.253.136:27003
+server:
+  port: 8083
