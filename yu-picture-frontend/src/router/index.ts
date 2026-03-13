@@ -8,10 +8,12 @@ import PictureDetailPage from '../pages/PictureDetailPage.vue'
 import PictureError from '../pages/error/PictureError.vue'
 import PictureManagePage from '../pages/admin/PictureMangePage.vue'
 import SpaceManagePage from '../pages/admin/SpaceMangePage.vue'
+import SpaceUserMangePage from '../pages/admin/SpaceUserMangePage.vue'
 import AddPictureBatchPage from '../pages/AddPictureBatchPage.vue'
 import AddSpacePage from '../pages/AddSpacePage.vue'
 import MySpacePage from '../pages/MySpacePage.vue'
 import SpaceDetailPage from '../pages/SpaceDetailPage.vue'
+import SpaceAnalyzePage from '../pages/SpaceAnalyzePage.vue'
 import ACCESS_ENUM from "@/access/accessEnum";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -47,9 +49,20 @@ const router = createRouter({
       }
     },
     {
+      path: '/spaceUserManage/:id',
+      name: '空间成员管理',
+      component: SpaceUserMangePage,
+      props: true,
+    },
+    {
       path: '/my_space',
       name: '我的空间',
       component: MySpacePage,
+    },
+    {
+      path: '/space_analyze',
+      name: '数据分析',
+      component: SpaceAnalyzePage,
     },
     {
       path: '/admin/spaceManage',

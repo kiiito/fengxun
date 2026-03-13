@@ -7,9 +7,11 @@ import router from './router'
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/reset.css';
 import "@/access";
+import VueCropper from 'vue-cropper';
+import 'vue-cropper/dist/index.css'
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
 const app = createApp(App)
-
+app.use(VueCropper)
 app.use(createPinia())
 app.use(router)
 app.use(Antd);

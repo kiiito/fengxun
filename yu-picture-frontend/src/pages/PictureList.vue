@@ -31,12 +31,16 @@
               </template>
             </a-card-meta>
             <template v-if="showOp" #actions>
-              <a-space @click="e => doEdit(picture, e)">
-                <edit-outlined />
+              <a-space @click="e => doShare(picture, e)">
+                <ShareAltOutlined />
+                分享
+              </a-space>
+              <a-space v-if="canEdit" @click="e => doEdit(picture, e)">
+                <EditOutlined />
                 编辑
               </a-space>
-              <a-space @click="e => doDelete(picture, e)">
-                <delete-outlined />
+              <a-space v-if="canDelete" @click="e => doDelete(picture, e)">
+                <DeleteOutlined />
                 删除
               </a-space>
             </template>
@@ -45,26 +49,35 @@
         </a-list-item>
       </template>
     </a-list>
+    <ShareModel ref="shareModalRef" :link="shareLink"/>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import {HomeOutlined, LogoutOutlined,UserOutlined} from '@ant-design/icons-vue'
+import {EditOutlined,ShareAltOutlined,DeleteOutlined} from '@ant-design/icons-vue'
 import {message} from "ant-design-vue";
 import {deletePictureUsingPost} from "@/api/pictureController";
+import ShareModel from "@/components/ShareModel.vue";
+import {ref} from "vue";
 
 interface Props {
   dataList?: API.PictureVO[]
   loading?: boolean
   showOp?: boolean
   onReload?: () => void
+  canEdit?: boolean
+  canDelete?: boolean
 }
+
 const props = withDefaults(defineProps<Props>(), {
   dataList: () => [],
   loading: false,
   showOp: false,
+  canEdit: false,
+  canDelete: false,
 })
+
 // 编辑
 const doEdit = (picture, e) => {
   // 阻止冒泡
@@ -100,6 +113,20 @@ const doClickPicture = (picture) => {
   router.push({
     path: `/picture/${picture.id}`,
   })
+}
+
+// 分享弹窗引用
+const shareModalRef = ref()
+// 分享链接
+const shareLink = ref<string>()
+
+// 分享
+const doShare = (picture: API.PictureVO, e: Event) => {
+  e.stopPropagation()
+  shareLink.value = `${window.location.protocol}//${window.location.host}/picture/${picture.id}`
+  if (shareModalRef.value) {
+    shareModalRef.value.openModal()
+  }
 }
 </script>
 
